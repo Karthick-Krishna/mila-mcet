@@ -1,0 +1,21 @@
+{
+  "name": "mila-mcet-incubation-center",
+  "version": "1.0.0",
+  "description": "MCET Incubation and Innovation Launchpad Association (MILA) & EIC - Official Website",
+  "private": true,
+  "scripts": {
+    "start": "serve -s . -l 4100",
+    "dev": "serve -s . -l 4100"
+  },
+  "keywords": [
+    "incubation",
+    "startup",
+    "mcet",
+    "mila",
+    "startuptn",
+    "msme",
+    "edii-tn"
+  ],
+  "author": "Dr. Mahalingam College of Engineering and Technology",
+  "license": "UNLICENSED"
+}

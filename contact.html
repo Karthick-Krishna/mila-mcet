@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Campus Locator | MILA - Dr. MCET Incubation Center & CIBIE</title>
+  <meta name="description" content="Get in touch with Dr. MCET Pollachi Incubation Center (MILA Club & CIBIE). Connect with Dr. D. Ganeshkumar, Mr. P. E. Kamalakkannan, and schedule a lab visit.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Standard Global Header (Populated dynamically by header.js) -->
+  <div id="global-header"></div>
+
+      
+  <section class="section-py-sm" style="padding-top:4.5rem; padding-bottom:3rem;">
+    <div class="container">
+      <div style="text-align:center; max-width:820px; margin:0 auto;">
+        <span class="badge-pill" style="margin-bottom:1rem;">
+          <i class="fas fa-headset text-orange"></i> Reach Out &bull; Pollachi
+        </span>
+        <h1 style="margin-bottom:1rem;">Connect with <span class="gradient-text-orange">Dr. MCET CIBIE & MILA</span></h1>
+        <p class="lead">
+          Get in touch with our incubation leadership team at Dr. MCET Pollachi to discuss student startups, EDII-TN grants, prototype testing, or corporate partnerships.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Cards & Map Section -->
+  <section class="section-py" style="padding-top:1rem;">
+    <div class="container">
+      
+      <!-- Key Personnel Cards -->
+      <div class="grid-2" style="gap:2rem; margin-bottom:3rem;">
+        
+        <!-- Contact Card 1: Dr. D. Ganeshkumar -->
+        <div class="glass-card" style="padding:2.5rem; border-radius:var(--radius-xl); display:flex; gap:1.5rem; align-items:center;">
+          <div style="width:70px; height:70px; border-radius:16px; background:linear-gradient(135deg, var(--accent), var(--orange-800)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0;">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div>
+            <span class="badge-pill badge-solid" style="margin-bottom:0.4rem; font-size:0.75rem;">HEAD &ndash; CIBIE & EIC</span>
+            <h3 style="font-size:1.35rem; margin-bottom:0.2rem;">Dr. D. Ganeshkumar</h3>
+            <div style="font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:0.6rem;">Centre for Innovation, Business Incubation & Entrepreneurship</div>
+            <div style="font-size:0.88rem; color:var(--text-secondary); display:flex; flex-direction:column; gap:0.25rem;">
+              <span><i class="fas fa-envelope text-orange"></i> cibie@drmcet.ac.in</span>
+              <span><i class="fas fa-phone text-orange"></i> +91 4259 236030 / 40 / 50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Card 2: Mr. P. E. Kamalakkannan -->
+        <div class="glass-card" style="padding:2.5rem; border-radius:var(--radius-xl); display:flex; gap:1.5rem; align-items:center;">
+          <div style="width:70px; height:70px; border-radius:16px; background:linear-gradient(135deg, var(--accent-amber), var(--accent)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0;">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div>
+            <span class="badge-pill badge-amber" style="margin-bottom:0.4rem; font-size:0.75rem;">INCUBATION MANAGER</span>
+            <h3 style="font-size:1.35rem; margin-bottom:0.2rem;">Mr. P. E. Kamalakkannan</h3>
+            <div style="font-size:0.85rem; color:var(--accent); font-weight:600; margin-bottom:0.6rem;">Manager &ndash; MCET EIC / MILA Club</div>
+            <div style="font-size:0.88rem; color:var(--text-secondary); display:flex; flex-direction:column; gap:0.25rem;">
+              <span><i class="fas fa-envelope text-orange"></i> eic@drmcet.ac.in</span>
+              <span><i class="fas fa-phone text-orange"></i> +91 98424 07169</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Contact Form & Interactive Map Grid -->
+      <div class="grid-2" style="gap:2.5rem; align-items:start;">
+        
+        <!-- Enquiry Form -->
+        <div class="form-glass-wrap" style="padding:2.5rem;">
+          <div style="margin-bottom:1.75rem;">
+            <span class="badge-pill badge-solid" style="margin-bottom:0.5rem;">ENQUIRY & SLOTS</span>
+            <h3 style="font-size:1.6rem;">Send CIBIE a Message</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted);">Fill in your details and our incubation office will respond promptly.</p>
+          </div>
+
+          <form id="tbi-contact-form">
+            <div class="form-group">
+              <label class="form-label">Your Name *</label>
+              <input type="text" class="form-control" required placeholder="Full Name">
+            </div>
+
+            <div class="grid-2" style="gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control" required placeholder="name@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" required placeholder="+91 98424 00000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Purpose of Enquiry</label>
+              <select class="form-control">
+                <option>MILA Club Student Incubation Application</option>
+                <option>EDII-TN IVP Grant Assistance (Voucher A/B)</option>
+                <option>AICTE IDEA Lab / C-DAT Access Slot</option>
+                <option>Mentorship & Speaker Collaboration</option>
+                <option>Startup Desk / Cabin Booking</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Message Details *</label>
+              <textarea class="form-control" required placeholder="How can Dr. MCET CIBIE / MILA assist your startup?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">
+              <i class="fas fa-paper-plane"></i> Send Message to CIBIE
+            </button>
+          </form>
+        </div>
+
+        <!-- Campus Address & Map Frame -->
+        <div>
+          <div class="glass-card" style="padding:2rem; border-radius:var(--radius-xl); margin-bottom:1.5rem;">
+            <div style="display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.25rem;">
+              <div class="thrust-icon-wrap" style="width:48px;height:48px;font-size:1.3rem;margin-bottom:0;flex-shrink:0;">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 style="font-size:1.2rem; margin-bottom:0.35rem;">Campus Location</h4>
+                <p style="font-size:0.92rem; color:var(--text-secondary); margin:0; line-height:1.7;">
+                  <strong>CIBIE & MILA Incubation Hub</strong><br>
+                  Mechanical Engineering Block, Dr. MCET Campus,<br>
+                  Dr. Mahalingam College of Engineering & Technology,<br>
+                  Udumalai Road, Mackkinaickenpatti (Post),<br>
+                  Pollachi – 642003, Coimbatore District, Tamil Nadu, India.
+                </p>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; padding-top:1rem; border-top:1px solid rgba(234,88,12,0.12);">
+              <span class="badge-pill"><i class="fas fa-clock text-orange"></i> Mon &ndash; Sat: 9:00 AM &ndash; 5:30 PM</span>
+              <span class="badge-pill"><i class="fas fa-flask text-orange"></i> AICTE IDEA Lab: 24/7 for Incubatees</span>
+            </div>
+          </div>
+
+          <!-- Embedded Map for Dr. MCET Pollachi -->
+          <div class="glass-card" style="border-radius:var(--radius-xl); overflow:hidden; height:320px;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.8973715694386!2d77.0326442!3d10.6394541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba838891d4e6807%3A0xe54b9d072483863a!2sDr.Mahalingam%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="tbi-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom:1.25rem;">
+            <div class="nav-logo-icon" style="background:var(--accent);">MILA</div>
+            <div>
+              <div style="font-weight:800; font-size:1.2rem; color:#fff;">DR. MCET <span style="color:var(--accent);">MILA</span></div>
+              <div style="font-size:0.75rem; color:#94a3b8; text-transform:uppercase;">Incubation Center &bull; CIBIE Pollachi</div>
+            </div>
+          </div>
+          <p>
+            MCET Incubation and Innovation Launchpad Association (MILA) & CIBIE. Dr. Mahalingam College of Engineering and Technology, Pollachi.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Incubation Programs</a></li>
+            <li><a href="funding.html">EDII-TN Grants</a></li>
+            <li><a href="facilities.html">AICTE IDEA Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="startups.html">Startups Portfolio</a></li>
+            <li><a href="mentors.html">Mentors Network</a></li>
+            <li><a href="initiatives.html">MILA Club</a></li>
+            <li><a href="apply.html">Apply for Incubation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Incubation Office</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>CIBIE / MILA Incubation Hub, Mechanical Block, Dr. MCET Campus, Udumalai Road, Pollachi – 642003.</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>cibie@drmcet.ac.in</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+91 4259 236030 / +91 98424 07169</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 MCET Incubation & Innovation Launchpad Association (MILA). Dr. MCET Pollachi.</div>
+        <div><a href="contact.html" style="color:#94a3b8;">Pollachi, Tamil Nadu</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/data/mcet_data.js"></script>
+  <script src="assets/js/header.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
