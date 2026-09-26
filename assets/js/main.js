@@ -1,5 +1,5 @@
 /**
- * DR. MCET INCUBATION CENTER & MILA CLUB (CIBIE)
+ * DR. MCET INCUBATION CENTER & MILA CLUB (EIC)
  * Dr. Mahalingam College of Engineering and Technology, Pollachi
  * Core Interactive Scripts & Utilities
  */
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDrawer();
   initStatsCounter();
   initStartupDirectory();
+  initEventsDirectory();
   initFacilityModals();
   initApplicationWizard();
   initGalleryFilter();
@@ -152,63 +153,129 @@ function animateFloatCount(el, target, prefix, suffix) {
 
 /* 4. Startup Directory Search & Filter */
 function initStartupDirectory() {
-  const startupGrid = document.getElementById('startup-grid');
+  const startupCardsView = document.getElementById('startup-cards-view') || document.getElementById('startup-grid');
   const searchInput = document.getElementById('startup-search');
   const filterBtns = document.querySelectorAll('.filter-tab-btn[data-category]');
 
   const dataset = window.MCET_DATA || window.TBI_DATA;
-  if (!startupGrid || !dataset || !dataset.startups) return;
+  if (!startupCardsView || !dataset || !dataset.startups) return;
 
   let activeCategory = 'all';
   let searchTerm = '';
 
+  // Brand Colors for each Startup Monogram
+  const brandColorMap = {
+    'Trolleywise': '#ea580c',
+    'Coralgenz Global': '#1e40af',
+    'AERONIXA': '#0369a1',
+    'Intellicane systems': '#be123c',
+    'Unuman Corps': '#581c87',
+    'Safoura': '#047857',
+    'Micro Renewables': '#b45309',
+    'Vita Wing': '#991b1b',
+    'TheAtpass': '#1e3a8a',
+    'ReArm Technologies': '#115e59',
+    'Vhelan Technologies': '#c2410c',
+    'VOLTERRA TECHNOLOGIES': '#065f46',
+    'Novexa Technology': '#3f6212',
+    'APTRA': '#1e293b',
+    'NOTEIT': '#6b21a8',
+    'STARKYN TECHNOLOGIES LLP': '#075985',
+    'Madhina Enterprises': '#9a3412'
+  };
+
+  function getBrandColor(name) {
+    return brandColorMap[name] || '#374151';
+  }
+
+  function getInitials(name) {
+    if (!name) return '?';
+    const words = name.trim().split(/\s+/);
+    if (words.length === 1) return words[0].charAt(0).toUpperCase();
+    return (words[0].charAt(0) + words[1].charAt(0)).toUpperCase();
+  }
+
+  function getFounderInitials(founderName) {
+    if (!founderName) return '?';
+    const parts = founderName.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+    return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+  }
+
   function renderStartups() {
     const list = dataset.startups.filter(s => {
-      const matchCat = activeCategory === 'all' || 
-        s.category.toLowerCase().includes(activeCategory.toLowerCase()) || 
-        s.sector.toLowerCase().includes(activeCategory.toLowerCase());
+      let matchCat = activeCategory === 'all';
+      if (!matchCat) {
+        const cat = activeCategory.toLowerCase();
+        const fullText = `${s.name} ${s.sector} ${s.theme} ${s.dept} ${s.category || ''} ${s.grant || ''}`.toLowerCase();
+        if (cat === 'agritech') {
+          matchCat = fullText.includes('agri') || fullText.includes('clean') || fullText.includes('renewable') || fullText.includes('solar');
+        } else if (cat === 'engineering') {
+          matchCat = fullText.includes('engineering') || fullText.includes('robot') || fullText.includes('drone') || fullText.includes('electronics') || fullText.includes('mobility') || fullText.includes('hardware') || fullText.includes('avionics');
+        } else if (cat === 'software') {
+          matchCat = fullText.includes('software') || fullText.includes('it ') || fullText.includes('ai') || fullText.includes('saas') || fullText.includes('edtech') || fullText.includes('cyber');
+        } else if (cat === 'grant') {
+          matchCat = true;
+        } else if (cat === 'student') {
+          matchCat = true;
+        } else {
+          matchCat = fullText.includes(cat);
+        }
+      }
+
       const matchSearch = searchTerm === '' || 
-        s.name.toLowerCase().includes(searchTerm) || 
-        s.sector.toLowerCase().includes(searchTerm) ||
-        s.description.toLowerCase().includes(searchTerm) ||
-        s.founders.toLowerCase().includes(searchTerm);
+        (s.name && s.name.toLowerCase().includes(searchTerm)) || 
+        (s.founders && s.founders.toLowerCase().includes(searchTerm)) ||
+        (s.dept && s.dept.toLowerCase().includes(searchTerm)) ||
+        (s.theme && s.theme.toLowerCase().includes(searchTerm)) ||
+        (s.sector && s.sector.toLowerCase().includes(searchTerm));
       return matchCat && matchSearch;
     });
 
-    if (list.length === 0) {
-      startupGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
-          <h3>No ventures matching your query</h3>
-          <p class="text-muted">Try adjusting your keywords or category filters for Dr. MCET startups.</p>
-        </div>
-      `;
-      return;
-    }
-
-    startupGrid.innerHTML = list.map(s => `
-      <div class="glass-card startup-card">
-        <div>
-          <div class="startup-header">
-            <img src="${s.image}" alt="${s.name}" class="startup-avatar" onerror="this.src='https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=200&auto=format&fit=crop&q=80'">
-            <div class="startup-info">
-              <h4>${s.name}</h4>
-              <span class="startup-category-tag">${s.sector}</span>
+    // Render Corporate Professional Cards
+    if (startupCardsView) {
+      if (list.length === 0) {
+        startupCardsView.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
+            <h3 style="font-weight: 700; color: #111827; margin-bottom: 0.5rem;">No ventures found</h3>
+            <p style="color: #6b7280; font-size: 0.9rem;">Try adjusting your search or category filters.</p>
+          </div>
+        `;
+      } else {
+        startupCardsView.innerHTML = list.map((s, idx) => {
+          const sno = s.sno || (idx + 1);
+          const brandColor = getBrandColor(s.name);
+          const monogram = getInitials(s.name);
+          const founderInit = getFounderInitials(s.founders);
+          return `
+            <div class="startup-brand-card" style="--card-accent: ${brandColor};">
+              <div class="startup-brand-top">
+                <div class="startup-brand-logo" style="background: ${brandColor};">${monogram}</div>
+                <div class="startup-brand-meta">
+                  <div class="startup-brand-badge-row">
+                    <span class="startup-brand-num">#${sno}</span>
+                    <span class="startup-brand-sector" title="${s.sector || ''}">${s.sector || 'Incubation Track'}</span>
+                  </div>
+                  <h3 class="startup-brand-title">${s.name}</h3>
+                </div>
+              </div>
+              <div class="startup-brand-theme-box">
+                <div class="startup-brand-label">Theme &amp; Innovation</div>
+                <p class="startup-brand-theme-text">${s.theme || ''}</p>
+              </div>
+              <div class="startup-brand-founder-box">
+                <div class="startup-brand-founder-avatar">${founderInit}</div>
+                <div class="startup-brand-founder-info">
+                  <div class="startup-brand-founder-label">Student Founder</div>
+                  <div class="startup-brand-founder-name">${s.founders || ''}</div>
+                  <div class="startup-brand-founder-dept">${s.dept || ''}</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-            ${s.description}
-          </p>
-        </div>
-        <div style="margin-top:auto; padding-top:1rem; border-top:1px solid var(--border);">
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem; color: var(--text-muted); margin-bottom: 0.75rem; flex-wrap:wrap; gap:0.5rem;">
-            <span><i class="fas fa-user-tie text-orange"></i> ${s.founders}</span>
-            <span class="badge-pill badge-outline" style="font-size: 0.75rem; font-weight:700;">${s.stage}</span>
-          </div>
-          ${s.grant ? `<div class="startup-grant-tag"><i class="fas fa-award text-orange"></i> ${s.grant}</div>` : ''}
-        </div>
-      </div>
-    `).join('');
+          `;
+        }).join('');
+      }
+    }
   }
 
   filterBtns.forEach(btn => {
@@ -226,6 +293,246 @@ function initStartupDirectory() {
   });
 
   renderStartups();
+}
+
+/* 4b. Events, Hackathons & Workshops Showcase with Interactive Detail Modal & Fullscreen Lightbox */
+function initEventsDirectory() {
+  const eventsGrid = document.getElementById('events-showcase-grid');
+  const searchInput = document.getElementById('event-search');
+  const filterBtns = document.querySelectorAll('.event-filter-tab-btn[data-category]');
+
+  // Event Detail Modal Elements
+  const modal = document.getElementById('event-detail-modal');
+  const modalCloseBtn = document.getElementById('close-event-modal');
+  const modalSlideImg = document.getElementById('event-modal-slide-img');
+  const modalImgCaption = document.getElementById('event-modal-img-caption');
+  const modalThumbBar = document.getElementById('event-modal-thumb-bar');
+  const modalZoomTrigger = document.getElementById('event-modal-zoom-trigger');
+  const modalTitle = document.getElementById('event-modal-title');
+  const modalDate = document.getElementById('event-modal-date');
+  const modalVenue = document.getElementById('event-modal-venue');
+  const modalCat = document.getElementById('event-modal-cat');
+  const modalOrg = document.getElementById('event-modal-org');
+  const modalChiefGuest = document.getElementById('event-modal-chief-guest');
+  const modalGuestOrg = document.getElementById('event-modal-guest-org');
+  const modalParticipants = document.getElementById('event-modal-participants');
+  const modalDept = document.getElementById('event-modal-dept');
+  const modalOrganizer = document.getElementById('event-modal-organizer');
+
+  // Lightbox Modal Elements
+  const lightboxModal = document.getElementById('image-lightbox-modal');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+  const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+  const lightboxNextBtn = document.getElementById('lightbox-next-btn');
+  const lightboxMainImg = document.getElementById('lightbox-main-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  const dataset = window.MCET_DATA || window.TBI_DATA;
+  if (!eventsGrid || !dataset || !dataset.events) return;
+
+  let activeCategory = 'all';
+  let searchTerm = '';
+  let activeEventGallery = [];
+  let currentImageIndex = 0;
+
+  // --- Lightbox Functions ---
+  function openLightbox(index = 0) {
+    if (!lightboxModal || !activeEventGallery.length) return;
+    currentImageIndex = (index + activeEventGallery.length) % activeEventGallery.length;
+    const currentItem = activeEventGallery[currentImageIndex];
+    if (lightboxMainImg) lightboxMainImg.src = currentItem.url;
+    if (lightboxCaption) lightboxCaption.textContent = currentItem.title || 'Event Visual Record';
+    
+    lightboxModal.classList.add('active');
+  }
+
+  function closeLightbox() {
+    lightboxModal?.classList.remove('active');
+  }
+
+  function showNextImage() {
+    openLightbox(currentImageIndex + 1);
+  }
+
+  function showPrevImage() {
+    openLightbox(currentImageIndex - 1);
+  }
+
+  lightboxCloseBtn?.addEventListener('click', closeLightbox);
+  lightboxNextBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNextImage(); });
+  lightboxPrevBtn?.addEventListener('click', (e) => { e.stopPropagation(); showPrevImage(); });
+  lightboxModal?.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) closeLightbox();
+  });
+
+  // --- Modal Functions ---
+  function setActiveModalImage(index) {
+    if (!activeEventGallery.length) return;
+    currentImageIndex = index;
+    const item = activeEventGallery[index];
+    if (modalSlideImg) modalSlideImg.src = item.url;
+    if (modalImgCaption) modalImgCaption.textContent = item.title;
+
+    // Update active thumb button
+    const thumbBtns = modalThumbBar?.querySelectorAll('.event-modal-thumb-btn');
+    thumbBtns?.forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === index);
+    });
+  }
+
+  function openEventModal(eventObj) {
+    if (!modal) return;
+
+    // Build Gallery Array
+    activeEventGallery = [];
+    if (eventObj.slideImage) {
+      activeEventGallery.push({ url: eventObj.slideImage, title: 'Complete Presentation Slide & Record' });
+    }
+    if (eventObj.photoImage) {
+      activeEventGallery.push({ url: eventObj.photoImage, title: 'Live Event Photography' });
+    }
+    if (eventObj.posterImage) {
+      activeEventGallery.push({ url: eventObj.posterImage, title: 'Official Event Poster & Pamphlet' });
+    }
+    if (eventObj.galleryImage) {
+      activeEventGallery.push({ url: eventObj.galleryImage, title: 'Award & Valedictory Collage' });
+    }
+    if (activeEventGallery.length === 0 && eventObj.image) {
+      activeEventGallery.push({ url: eventObj.image, title: eventObj.title });
+    }
+
+    currentImageIndex = 0;
+    setActiveModalImage(0);
+
+    // Build Thumbnails in modal
+    if (modalThumbBar) {
+      modalThumbBar.innerHTML = activeEventGallery.map((item, idx) => `
+        <button type="button" class="event-modal-thumb-btn ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+          <img src="${item.url}" alt="${item.title}" loading="lazy">
+          <span class="thumb-label">${item.title.split(' ')[0]} ${item.title.split(' ')[1] || ''}</span>
+        </button>
+      `).join('');
+
+      const thumbBtns = modalThumbBar.querySelectorAll('.event-modal-thumb-btn');
+      thumbBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+          setActiveModalImage(idx);
+        });
+      });
+    }
+
+    // Set textual details
+    if (modalTitle) modalTitle.textContent = eventObj.title;
+    if (modalDate) modalDate.textContent = eventObj.date;
+    if (modalCat) modalCat.textContent = eventObj.category || 'MILA Program';
+    if (modalOrg) modalOrg.textContent = eventObj.organizer || 'CIBIE-MCET & EIC';
+    if (modalChiefGuest) modalChiefGuest.textContent = eventObj.chiefGuest || 'Distinguished Guests';
+    if (modalGuestOrg) modalGuestOrg.textContent = eventObj.guestOrg || 'Partner Ecosystem';
+    if (modalVenue) modalVenue.textContent = eventObj.venue || 'Dr. MCET Campus, Pollachi';
+    if (modalParticipants) modalParticipants.textContent = eventObj.participants || 'Registered Participants';
+    if (modalDept) modalDept.textContent = eventObj.department || 'Students & Faculty';
+    if (modalOrganizer) modalOrganizer.textContent = eventObj.organizer || 'MILA & EIC';
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Click on main modal image triggers Lightbox
+  modalZoomTrigger?.addEventListener('click', () => {
+    openLightbox(currentImageIndex);
+  });
+
+  function closeEventModal() {
+    modal?.classList.remove('active');
+    closeLightbox();
+    document.body.style.overflow = '';
+  }
+
+  modalCloseBtn?.addEventListener('click', closeEventModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeEventModal();
+  });
+
+  // Global Keyboard Navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightboxModal?.classList.contains('active')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNextImage();
+      if (e.key === 'ArrowLeft') showPrevImage();
+    } else if (modal?.classList.contains('active')) {
+      if (e.key === 'Escape') closeEventModal();
+    }
+  });
+
+  function parseEventDate(dateStr) {
+    if (!dateStr) return 0;
+    const firstPart = dateStr.split('&')[0].trim();
+    const parts = firstPart.split('.');
+    if (parts.length === 3) {
+      const day = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10) - 1;
+      const year = parseInt(parts[2], 10);
+      return new Date(year, month, day).getTime();
+    }
+    return 0;
+  }
+
+  function renderEvents() {
+    let list = dataset.events.filter(ev => {
+      const matchSearch = searchTerm === '' ||
+        (ev.title && ev.title.toLowerCase().includes(searchTerm)) ||
+        (ev.chiefGuest && ev.chiefGuest.toLowerCase().includes(searchTerm)) ||
+        (ev.venue && ev.venue.toLowerCase().includes(searchTerm)) ||
+        (ev.date && ev.date.toLowerCase().includes(searchTerm)) ||
+        (ev.department && ev.department.toLowerCase().includes(searchTerm)) ||
+        (ev.category && ev.category.toLowerCase().includes(searchTerm));
+
+      return matchSearch;
+    });
+
+    // Ensure strict New-to-Old chronological sorting
+    list.sort((a, b) => parseEventDate(b.date) - parseEventDate(a.date));
+
+    if (list.length === 0) {
+      eventsGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem;">
+          <h3 style="font-weight: 700; color: #111827; margin-bottom: 0.5rem;">No events found</h3>
+          <p style="color: #6b7280; font-size: 0.9rem;">Try adjusting your search query.</p>
+        </div>
+      `;
+    } else {
+      eventsGrid.innerHTML = list.map((ev, idx) => `
+        <div class="event-card" data-event-id="${ev.id || idx}">
+          <div class="event-card-img-wrap">
+            <img src="${ev.image}" alt="${ev.title}" loading="lazy">
+            <span class="event-card-date-badge"><i class="far fa-calendar-alt"></i> ${ev.date}</span>
+          </div>
+          <div class="event-card-body">
+            <h3 class="event-card-title">${ev.title}</h3>
+            <div class="event-card-meta-row">
+              <span class="event-card-participants"><i class="fas fa-users"></i> ${ev.participants || 'Participants'}</span>
+              <span class="event-card-action-btn">View Details <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Add click listeners to cards
+      const cards = eventsGrid.querySelectorAll('.event-card');
+      cards.forEach((card, i) => {
+        card.addEventListener('click', () => {
+          openEventModal(list[i]);
+        });
+      });
+    }
+  }
+
+  searchInput?.addEventListener('input', (e) => {
+    searchTerm = e.target.value.toLowerCase().trim();
+    renderEvents();
+  });
+
+  renderEvents();
 }
 
 /* 5. Facility Booking Modal & Modals */
@@ -258,7 +565,7 @@ function initFacilityModals() {
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    showToast('Success! Your facility slot request has been submitted to Dr. MCET CIBIE / MILA lab managers.', 'success');
+    showToast('Success! Your facility slot request has been submitted to Dr. MCET EIC / MILA lab managers.', 'success');
     closeModal();
     form.reset();
   });
@@ -423,7 +730,7 @@ function initContactForm() {
   const contactForm = document.getElementById('tbi-contact-form');
   contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    showToast('Thank you! Your message has been sent to Dr. MCET CIBIE / MILA Incubation Office, Pollachi.', 'success');
+    showToast('Thank you! Your message has been sent to Dr. MCET EIC / MILA Incubation Office, Pollachi.', 'success');
     contactForm.reset();
   });
 }

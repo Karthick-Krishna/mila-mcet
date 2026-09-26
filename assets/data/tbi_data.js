@@ -1,4 +1,4 @@
-// Dr. MCET Incubation Center & MILA Club (CIBIE) Dataset
+// Dr. MCET Incubation Center & MILA Club (EIC) Dataset
 // Replaces previous placeholder dataset with authentic Dr. MCET Pollachi data
 
 window.MCET_DATA = window.MCET_DATA || {

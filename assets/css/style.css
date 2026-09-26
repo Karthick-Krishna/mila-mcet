@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MILA — DR. MCET INCUBATION CENTRE · CIBIE POLLACHI
+   MILA — DR. MCET INCUBATION CENTRE · EIC POLLACHI
    PROFESSIONAL CORPORATE DESIGN SYSTEM
    CLEAN WHITE + ORANGE ACCENT
    ========================================================================== */
@@ -499,14 +499,23 @@ a:hover { color: var(--accent-hover); }
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.04);
-  padding: 0.5rem 0;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 0.35rem 0;
   list-style: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
   transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
   z-index: 1050;
+  overflow: hidden;
+}
+
+.nav-dropdown-menu li {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.nav-dropdown-menu li:last-child {
+  border-bottom: none;
 }
 
 .nav-dropdown-menu::before {
@@ -532,35 +541,23 @@ a:hover { color: var(--accent-hover); }
 .dropdown-link {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 1.1rem;
-  font-size: 0.84rem;
+  padding: 0.72rem 1.25rem;
+  font-size: 0.92rem;
   font-weight: 500;
-  color: var(--gray-700);
-  transition: all 0.15s ease;
+  color: #334155;
+  transition: all 0.18s ease;
   text-decoration: none;
-}
-
-.dropdown-link i {
-  font-size: 0.85rem;
-  width: 18px;
-  color: var(--accent);
-  text-align: center;
-  transition: transform 0.15s ease;
+  line-height: 1.35;
 }
 
 .dropdown-link:hover {
-  background: var(--accent-surface);
+  background: #fff7ed;
   color: var(--accent);
-  padding-left: 1.25rem;
-}
-
-.dropdown-link:hover i {
-  transform: scale(1.15);
+  padding-left: 1.45rem;
 }
 
 .dropdown-link.active {
-  background: var(--accent-light);
+  background: #ffedd5;
   color: var(--accent);
   font-weight: 600;
 }
@@ -705,28 +702,31 @@ a:hover { color: var(--accent-hover); }
   display: none;
   flex-direction: column;
   padding-left: 0.75rem;
-  margin: 0.2rem 0 0.5rem;
-  border-left: 2px solid var(--orange-100);
+  margin: 0.35rem 0 0.65rem;
+  border-left: 2px solid var(--orange-200);
 }
 .mobile-nav-item.open .mobile-sub-menu {
   display: flex;
 }
 
+.mobile-sub-menu li {
+  border-bottom: 1px solid #f1f5f9;
+}
+.mobile-sub-menu li:last-child {
+  border-bottom: none;
+}
+
 .mobile-sub-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.65rem;
-  font-size: 0.84rem;
-  color: var(--gray-600);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #334155;
   text-decoration: none;
   border-radius: var(--radius-sm);
   transition: all 0.15s ease;
-}
-.mobile-sub-link i {
-  font-size: 0.8rem;
-  width: 16px;
-  color: var(--accent);
+  line-height: 1.35;
 }
 .mobile-sub-link:hover,
 .mobile-sub-link.active {
@@ -2025,3 +2025,842 @@ a:hover { color: var(--accent-hover); }
 .open-facility-modal-btn {
   cursor: pointer;
 }
+
+/* Executive Leadership Card Styles - Modern Square Layout */
+.exec-leader-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exec-leader-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .exec-leader-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .exec-leader-grid,
+  .exec-leader-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    max-width: 420px;
+  }
+}
+
+.exec-leader-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.exec-leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(234, 88, 12, 0.12), 0 12px 24px rgba(0, 0, 0, 0.04);
+  border-color: rgba(234, 88, 12, 0.4);
+}
+
+.exec-leader-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-amber));
+  opacity: 0.95;
+}
+
+.exec-leader-img-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f8fafc;
+  margin-bottom: 1.5rem;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.exec-leader-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exec-leader-card:hover .exec-leader-img-box img {
+  transform: scale(1.05);
+}
+
+.exec-leader-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.exec-leader-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.015em;
+}
+
+.exec-leader-role {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  line-height: 1.45;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.exec-leader-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+}
+
+/* ==========================================================================
+   Coloured Logo-Based High-Standard Startup Showcase
+   ========================================================================== */
+/* ======================================================================
+   STARTUP PORTFOLIO DIRECTORY — SEPARATE CORPORATE CARDS UI
+   Clean, Elegant, High-Standard Individual Startup Showcase
+   ====================================================================== */
+
+.startup-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+@media (max-width: 1100px) {
+  .startup-brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .startup-brand-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* --- Individual Standalone Card --- */
+.startup-brand-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.startup-brand-card:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+}
+
+/* Top Accent Line on Card */
+.startup-brand-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent, #ea580c);
+  opacity: 0.85;
+}
+
+/* --- Card Header: Brand Monogram + Meta --- */
+.startup-brand-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Brand Monogram Icon Badge */
+.startup-brand-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-family: var(--font-display), 'DM Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.startup-brand-meta {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+/* Badge Row: Serial Number + Sector */
+.startup-brand-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.startup-brand-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+
+.startup-brand-sector {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 170px;
+}
+
+/* Startup Name */
+.startup-brand-title {
+  font-family: var(--font-display), 'DM Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+/* --- Theme & Innovation Section --- */
+.startup-brand-theme-box {
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-left: 3px solid var(--card-accent, #ea580c);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.startup-brand-label {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.startup-brand-theme-text {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Student Founder Section --- */
+.startup-brand-founder-box {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.startup-brand-founder-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: -0.01em;
+}
+
+.startup-brand-founder-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.startup-brand-founder-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.startup-brand-founder-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.startup-brand-founder-dept {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ======================================================================
+   EVENTS & WORKSHOPS SHOWCASE SYSTEM
+   Corporate High-Standard Events Directory & Detail Modal
+   ====================================================================== */
+
+.events-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 1100px) {
+  .events-brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .events-brand-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.event-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.event-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1), 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.event-card-img-wrap {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.event-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.event-card-date-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.event-card-cat-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4);
+}
+
+.event-card-body {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event-card-title {
+  font-family: var(--font-display), 'DM Sans', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 1.15rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
+}
+
+.event-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.event-card-participants {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: #f0f9ff;
+  border: 1px solid #e0f2fe;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.event-card-action-btn {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.2s ease;
+}
+
+.event-card:hover .event-card-action-btn {
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   EVENT DETAIL MODAL & FULLSCREEN LIGHTBOX (ULTRA-PREMIUM)
+   ========================================================================== */
+.event-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-modal-dialog {
+  background: #ffffff;
+  border-radius: 18px;
+  max-width: 980px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  animation: modalPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.96) translateY(12px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.event-modal-header {
+  padding: 1.35rem 1.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: 20;
+}
+
+.event-modal-body {
+  padding: 1.75rem;
+}
+
+/* Media Showcase & Clickable Image Viewer */
+.event-modal-media-section {
+  margin-bottom: 2rem;
+  background: #0f172a;
+  border-radius: 14px;
+  padding: 1rem;
+  border: 1px solid #1e293b;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.18);
+}
+
+.event-modal-main-img-box {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #020617;
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-modal-main-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-modal-main-img-box:hover img {
+  transform: scale(1.015);
+}
+
+.event-img-active-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+/* Thumbnail Selector Strip */
+.event-modal-thumb-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+}
+
+.event-modal-thumb-btn {
+  flex: 0 0 auto;
+  width: 130px;
+  height: 75px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: #1e293b;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.event-modal-thumb-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.event-modal-thumb-btn.active {
+  border-color: var(--accent);
+  opacity: 1;
+  box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.4);
+}
+
+.event-modal-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-modal-thumb-btn .thumb-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.15rem 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 4-Card Metadata Grid */
+.event-modal-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 860px) {
+  .event-modal-info-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.event-modal-info-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-modal-info-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.event-modal-info-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.event-modal-info-sub {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Fullscreen Image Lightbox Overlay */
+.image-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(3, 7, 18, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 2rem;
+}
+
+.image-lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content-wrap {
+  position: relative;
+  max-width: 92vw;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: zoomPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes zoomPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-content-wrap img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-caption {
+  margin-top: 1rem;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 0.4rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox-close-btn:hover {
+  background: #ea580c;
+  border-color: #ea580c;
+  transform: scale(1.08);
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox-nav-btn.prev {
+  left: 1.5rem;
+}
+
+.lightbox-nav-btn.next {
+  right: 1.5rem;
+}
+
+.lightbox-nav-btn:hover {
+  background: #ea580c;
+  border-color: #ea580c;
+  transform: translateY(-50%) scale(1.1);
+}
+
+
+
+

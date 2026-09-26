@@ -1,5 +1,5 @@
 /**
- * DR. MCET INCUBATION CENTER & MILA CLUB (CIBIE)
+ * DR. MCET INCUBATION CENTER & MILA CLUB (EIC)
  * Standardized Global Header Component (Top Branding Header + Navigation Bar + Dropdowns + Mobile Drawer)
  * 
  * Editing this file automatically updates the header, navigation, and drawer across all pages!
@@ -24,27 +24,23 @@
       href: 'facilities.html',
       label: 'Facilities',
       dropdown: [
+        { href: 'facilities.html', label: 'Facilities', icon: 'fa-building' },
         { href: 'workspaces.html', label: 'Workspaces', icon: 'fa-laptop-code' },
         { href: 'makerspace.html', label: 'Makerspace', icon: 'fa-tools' },
-        { href: 'advanced-proto-lab.html', label: 'Advanced Proto Lab', icon: 'fa-microchip' },
-        { href: 'bio-products-lab.html', label: 'Bio Products Lab', icon: 'fa-seedling' },
-        { href: 'meeting-rooms.html', label: 'Meeting Rooms', icon: 'fa-door-open' },
-        { href: 'tap-centre.html', label: 'TAP Centre', icon: 'fa-vial' }
+        { href: 'meeting-rooms.html', label: 'Meeting Rooms', icon: 'fa-door-open' }
       ]
     },
     {
       href: 'initiatives.html',
       label: 'Initiatives',
       dropdown: [
+        { href: 'initiatives.html', label: 'All Initiatives', icon: 'fa-lightbulb' },
         { href: 'events.html', label: 'Events', icon: 'fa-calendar-alt' },
         { href: 'funding.html', label: 'Startup Grants', icon: 'fa-coins' },
         { href: 'programs.html', label: 'Incubation Programs', icon: 'fa-layer-group' },
         { href: 'virtual-incubation.html', label: 'Virtual Incubation', icon: 'fa-globe' },
         { href: 'students-incubation.html', label: 'Students Incubation', icon: 'fa-user-graduate' },
         { href: 'womens-incubation.html', label: "Women's Incubation", icon: 'fa-female' },
-        { href: 'proto-cafe.html', label: 'Proto Cafe', icon: 'fa-coffee' },
-        { href: 'mentor-cafe.html', label: 'Mentor Cafe', icon: 'fa-mug-hot' },
-        { href: 'investor-cafe.html', label: 'Investor Cafe', icon: 'fa-chart-line' },
         { href: 'startup-kits.html', label: 'Startup Kits', icon: 'fa-box-open' }
       ]
     },
@@ -52,9 +48,8 @@
       href: 'startups.html',
       label: 'Startups',
       dropdown: [
-        { href: 'startups.html', label: 'Startup Directory', icon: 'fa-th-large' },
-        { href: 'pre-incubation.html', label: 'Pre Incubation Startups', icon: 'fa-lightbulb' },
-        { href: 'incubation.html', label: 'Incubation Startups', icon: 'fa-rocket' }
+        { href: 'startups.html', label: 'Pre Incubation Startups', icon: 'fa-rocket' },
+        { href: 'incubation.html', label: 'Incubation Startups', icon: 'fa-building' }
       ]
     },
     { href: 'gallery.html', label: 'Gallery' },
@@ -97,7 +92,7 @@
       if (item.dropdown && item.dropdown.length) {
         const subItems = item.dropdown.map(sub => {
           const subActive = (currentPage === sub.href) ? ' active' : '';
-          return `<li><a href="${sub.href}" class="dropdown-link${subActive}"><i class="fas ${sub.icon}"></i> ${sub.label}</a></li>`;
+          return `<li><a href="${sub.href}" class="dropdown-link${subActive}">${sub.label}</a></li>`;
         }).join('');
 
         return `
@@ -122,7 +117,7 @@
       if (item.dropdown && item.dropdown.length) {
         const subItems = item.dropdown.map(sub => {
           const subActive = (currentPage === sub.href) ? ' active' : '';
-          return `<li><a href="${sub.href}" class="mobile-sub-link${subActive}"><i class="fas ${sub.icon}"></i> ${sub.label}</a></li>`;
+          return `<li><a href="${sub.href}" class="mobile-sub-link${subActive}">${sub.label}</a></li>`;
         }).join('');
 
         return `

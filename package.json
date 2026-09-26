@@ -4,8 +4,8 @@
   "description": "MCET Incubation and Innovation Launchpad Association (MILA) & EIC - Official Website",
   "private": true,
   "scripts": {
-    "start": "serve -s . -l 4100",
-    "dev": "serve -s . -l 4100"
+    "start": "npx -y serve -l 4100",
+    "dev": "npx -y serve -l 4100"
   },
   "keywords": [
     "incubation",
