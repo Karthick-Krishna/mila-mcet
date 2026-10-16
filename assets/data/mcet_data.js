@@ -21,6 +21,7 @@ window.MCET_DATA = {
       theme: 'Smart Shopping, Seamless Checkout.',
       sector: 'RetailTech & AI',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/trolleywise-logo.jpg',
       image: 'assets/images/labs/Robotics_workshop_at_the_Model_Engineering_College.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -34,6 +35,7 @@ window.MCET_DATA = {
       theme: 'IT Services and products',
       sector: 'IT Services & Software Engineering',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/coralgenz-logo.jpg',
       image: 'assets/images/labs/Indic_Hackathon_2022_Hyderabad__India_34.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -47,6 +49,7 @@ window.MCET_DATA = {
       theme: 'Avionics on drone logistics',
       sector: 'Drones & Avionics',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/aeronixa-logo.jpg',
       image: 'assets/images/labs/Robotics_at_IIT_Kharagpur.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -73,6 +76,7 @@ window.MCET_DATA = {
       theme: 'AI product development that empowers Humans',
       sector: 'AI & Cyber Security',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/unuman-logo.jpg',
       image: 'assets/images/labs/Neurox_hackbriven_hackathon_at_master_s_union_noida_delhi_6.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -86,6 +90,7 @@ window.MCET_DATA = {
       theme: 'Worker safety and technology',
       sector: 'SafetyTech & IoT',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/safoura-logo.jpg',
       image: 'assets/images/labs/Electrical_Engineering_students_at_Lab.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -112,6 +117,7 @@ window.MCET_DATA = {
       theme: 'LifeLink AI Drone Network',
       sector: 'Drone Network & Emergency Tech',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/vitawing-logo.jpg',
       image: 'assets/images/labs/Robotics_at_IIT_Kharagpur.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -125,6 +131,7 @@ window.MCET_DATA = {
       theme: 'SalesTech',
       sector: 'SalesTech & Enterprise SaaS',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/theatpass-logo.jpg',
       image: 'assets/images/labs/India_Hacks_Hackathon_by_HackerEarth.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -138,6 +145,7 @@ window.MCET_DATA = {
       theme: 'Health Care & Advanced Assistive Technologies',
       sector: 'Assistive Tech & Healthcare',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/rearm-logo.jpg',
       image: 'assets/images/labs/Electrical_Engineering_students_at_Lab.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -151,6 +159,7 @@ window.MCET_DATA = {
       theme: 'Bridge the Gap From Learning to Doing',
       sector: 'EdTech & Skill Platforms',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/vhelan-logo.jpg',
       image: 'assets/images/labs/Hackathon__Workshop___Edit-a-thon_at_WikiConference_India_2016.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -177,6 +186,7 @@ window.MCET_DATA = {
       theme: 'Agri - Tech',
       sector: 'AgriTech & Smart Farming',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/novexa-logo.jpg',
       image: 'assets/images/labs/Agricultural_Engineering_College_and_Research_Institute__Tiruchirappalli__Tamil_Nadu__India__2021_.png',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -190,6 +200,7 @@ window.MCET_DATA = {
       theme: 'Robotics and Advanced technologies',
       sector: 'Robotics & Automation',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/aptra-logo.jpg',
       image: 'assets/images/labs/Robotics_workshop_at_the_Model_Engineering_College.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -216,6 +227,7 @@ window.MCET_DATA = {
       theme: 'Powering the future of mobility',
       sector: 'EV & Smart Mobility',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/starkyn-logo.jpg',
       image: 'assets/images/labs/Diwakar_Vaish_with_his_development_-_Manav_at_A-SET_Robotics_Lab.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'
@@ -229,6 +241,7 @@ window.MCET_DATA = {
       theme: 'AI Automation & Automobile',
       sector: 'AI & Automotive Solutions',
       category: 'Student Innovation',
+      logo: 'assets/images/startups/madhina-logo.jpg',
       image: 'assets/images/labs/Indic_Hackathon_2022_Hyderabad__India_34.jpg',
       stage: 'Incubated Venture',
       grant: 'MILA Incubation Support'

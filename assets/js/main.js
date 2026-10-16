@@ -163,25 +163,25 @@ function initStartupDirectory() {
   let activeCategory = 'all';
   let searchTerm = '';
 
-  // Brand Colors for each Startup Monogram
+  // Brand Colors for each Startup Monogram & Accents
   const brandColorMap = {
-    'Trolleywise': '#ea580c',
-    'Coralgenz Global': '#1e40af',
-    'AERONIXA': '#0369a1',
+    'Trolleywise': '#16a34a',
+    'Coralgenz Global': '#0284c7',
+    'AERONIXA': '#0284c7',
     'Intellicane systems': '#be123c',
-    'Unuman Corps': '#581c87',
-    'Safoura': '#047857',
+    'Unuman Corps': '#18181b',
+    'Safoura': '#1e3932',
     'Micro Renewables': '#b45309',
-    'Vita Wing': '#991b1b',
-    'TheAtpass': '#1e3a8a',
-    'ReArm Technologies': '#115e59',
-    'Vhelan Technologies': '#c2410c',
+    'Vita Wing': '#0284c7',
+    'TheAtpass': '#0f2b5c',
+    'ReArm Technologies': '#0f2942',
+    'Vhelan Technologies': '#0284c7',
     'VOLTERRA TECHNOLOGIES': '#065f46',
-    'Novexa Technology': '#3f6212',
-    'APTRA': '#1e293b',
+    'Novexa Technology': '#0e2a47',
+    'APTRA': '#0f2942',
     'NOTEIT': '#6b21a8',
-    'STARKYN TECHNOLOGIES LLP': '#075985',
-    'Madhina Enterprises': '#9a3412'
+    'STARKYN TECHNOLOGIES LLP': '#d97706',
+    'Madhina Enterprises': '#b91c1c'
   };
 
   function getBrandColor(name) {
@@ -243,19 +243,19 @@ function initStartupDirectory() {
         `;
       } else {
         startupCardsView.innerHTML = list.map((s, idx) => {
-          const sno = s.sno || (idx + 1);
           const brandColor = getBrandColor(s.name);
           const monogram = getInitials(s.name);
           const founderInit = getFounderInitials(s.founders);
+          const logoHtml = s.logo
+            ? `<div class="startup-brand-logo startup-has-real-logo">
+                 <img src="${s.logo}" alt="${s.name} Logo" class="startup-real-logo-img" loading="lazy">
+               </div>`
+            : `<div class="startup-brand-logo" style="background: ${brandColor};">${monogram}</div>`;
           return `
             <div class="startup-brand-card" style="--card-accent: ${brandColor};">
               <div class="startup-brand-top">
-                <div class="startup-brand-logo" style="background: ${brandColor};">${monogram}</div>
+                ${logoHtml}
                 <div class="startup-brand-meta">
-                  <div class="startup-brand-badge-row">
-                    <span class="startup-brand-num">#${sno}</span>
-                    <span class="startup-brand-sector" title="${s.sector || ''}">${s.sector || 'Incubation Track'}</span>
-                  </div>
                   <h3 class="startup-brand-title">${s.name}</h3>
                 </div>
               </div>
