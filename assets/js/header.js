@@ -1,5 +1,5 @@
 /**
- * DR. MCET INCUBATION CENTER & MILA CLUB (EIC)
+ * DR. MCET INCUBATION CENTER & MILA (EIC)
  * Standardized Global Header Component (Top Branding Header + Navigation Bar + Dropdowns + Mobile Drawer)
  * 
  * Editing this file automatically updates the header, navigation, and drawer across all pages!
@@ -15,6 +15,7 @@
         { href: 'vision-mission.html', label: 'Vision & Mission', icon: 'fa-bullseye' },
         { href: 'services.html', label: 'Services', icon: 'fa-cubes' },
         { href: 'leadership.html', label: 'Leadership', icon: 'fa-user-tie' },
+        { href: 'tac-members.html', label: 'TAC Members', icon: 'fa-users-gear' },
         { href: 'partners.html', label: 'Partners', icon: 'fa-handshake' },
         { href: 'mentors.html', label: 'Mentors', icon: 'fa-chalkboard-teacher' },
         { href: 'team.html', label: 'Meet The Team', icon: 'fa-users' }

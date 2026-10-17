@@ -2953,3 +2953,115 @@ a:hover { color: var(--accent-hover); }
     padding: 2rem 1.5rem;
   }
 }
+
+/* Attractive People & Mentor Profile Cards */
+.mentors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.mentor-profile-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mentor-profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(234, 88, 12, 0.12), 0 10px 24px rgba(0, 0, 0, 0.04);
+  border-color: rgba(234, 88, 12, 0.4);
+}
+
+.mentor-profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-amber));
+}
+
+.mentor-profile-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f8fafc;
+  margin-bottom: 1.25rem;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.mentor-profile-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mentor-profile-card:hover .mentor-profile-img-wrap img {
+  transform: scale(1.04);
+}
+
+.mentor-profile-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.mentor-profile-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.015em;
+}
+
+.mentor-profile-desig {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.mentor-profile-spec {
+  margin-top: auto;
+  padding: 1rem 1.15rem;
+  background: rgba(234, 88, 12, 0.04);
+  border: 1px solid rgba(234, 88, 12, 0.12);
+  border-radius: 12px;
+}
+
+.mentor-profile-spec-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--orange-800);
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mentor-profile-spec-val {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.45;
+}

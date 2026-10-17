@@ -1,5 +1,5 @@
 /**
- * DR. MCET INCUBATION CENTER & MILA CLUB (EIC)
+ * DR. MCET INCUBATION CENTER & MILA (EIC)
  * Dr. Mahalingam College of Engineering and Technology, Pollachi
  * Core Interactive Scripts & Utilities
  */

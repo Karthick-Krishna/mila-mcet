@@ -1,4 +1,4 @@
-// DR. MCET INCUBATION CENTER & MILA CLUB (EIC) - OFFICIAL DATASET
+// DR. MCET INCUBATION CENTER & MILA (EIC) - OFFICIAL DATASET
 // Dr. Mahalingam College of Engineering and Technology, Pollachi
 
 window.MCET_DATA = {
@@ -613,7 +613,7 @@ window.MCET_DATA = {
         "title": "Technical Advisory Committee (TAC) Meeting for PIC MILA",
         "date": "25.07.2026",
         "venue": "Virtual Conference, Dr. MCET Campus",
-        "chiefGuest": "Dr. P. Govindasamy, Mr. S. Elavazhagan (ABT Ltd), Mr. S. Rajsekar (StartupTN), Dr. M. Kaliamoorthy, Dr. B. Vinoth Kumar (CODISSIA), Mr. S.B. Prithiv Raj, Dr. B.L. Lakshmi Meera, Ms. N. Thilagavathi, Dr. D. Ganeshkumar",
+        "chiefGuest": "Dr. P. Govindasamy, Mr. S. Elavazhagan (ABT Ltd), Mr. S. Rajsekar (StartupTN), Dr. M. Kaliamoorthy, Dr. B. Vinoth Kumar (CODISSIA), Mr. S.Prithiv Raj, Dr. B.L. Lakshmi Meera, Ms. N. Thilagavathi, Dr. D. Ganeshkumar",
         "guestRole": "Technical Advisory Committee (TAC)",
         "guestOrg": "Industry Leaders, Academic Patrons & Govt. Directors",
         "participants": "All TAC Advisory Board Members",
