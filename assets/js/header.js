@@ -32,16 +32,13 @@
       ]
     },
     {
-      href: 'initiatives.html',
+      href: 'events.html',
       label: 'Initiatives',
       dropdown: [
-        { href: 'initiatives.html', label: 'All Initiatives', icon: 'fa-lightbulb' },
         { href: 'events.html', label: 'Events', icon: 'fa-calendar-alt' },
         { href: 'funding.html', label: 'Startup Grants', icon: 'fa-coins' },
         { href: 'programs.html', label: 'Incubation Programs', icon: 'fa-layer-group' },
         { href: 'virtual-incubation.html', label: 'Virtual Incubation', icon: 'fa-globe' },
-        { href: 'students-incubation.html', label: 'Students Incubation', icon: 'fa-user-graduate' },
-        { href: 'womens-incubation.html', label: "Women's Incubation", icon: 'fa-female' },
         { href: 'startup-kits.html', label: 'Startup Kits', icon: 'fa-box-open' }
       ]
     },
@@ -69,7 +66,7 @@
       dropdown: [
         { href: 'apply.html', label: 'Become an Incubatee', icon: 'fa-user-plus' },
         { href: 'become-a-mentor.html', label: 'Become a Mentor', icon: 'fa-hands-helping' },
-        { href: 'csr.html', label: 'CSR Partnerships', icon: 'fa-building' }
+        { href: 'csr.html', label: 'Become an Investor', icon: 'fa-chart-line' }
       ]
     },
     { href: 'contact.html', label: 'Contact' },

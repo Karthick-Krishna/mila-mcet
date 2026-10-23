@@ -408,16 +408,23 @@ a:hover { color: var(--accent-hover); }
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 54px;
+  position: relative;
+}
+
+.nav-container nav {
+  display: flex;
+  justify-content: center;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
-  gap: 0.25rem;
-  margin: 0;
+  gap: 0.35rem;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -545,6 +552,8 @@ a:hover { color: var(--accent-hover); }
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  position: absolute;
+  right: 1.5rem;
 }
 
 .nav-cta-btn {
@@ -715,6 +724,8 @@ a:hover { color: var(--accent-hover); }
 
 /* Responsive Navigation Breakpoints */
 @media (max-width: 1120px) {
+  .nav-container { justify-content: flex-end; }
+  .nav-actions { position: static; }
   .nav-menu { display: none; }
   .mobile-toggle { display: block; }
   .top-partner-logos { gap: 1rem; }
@@ -884,36 +895,60 @@ a:hover { color: var(--accent-hover); }
    9. PARTNERS SECTION
    ========================================================================== */
 .partners-ticker-section {
-  padding: 1.75rem 0;
+  padding: 2rem 0;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border);
 }
 
+.partners-section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
 .partners-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
 }
 
 .partner-logo-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.65rem 1rem;
+  justify-content: center;
+  text-align: center;
+  padding: 1.1rem 1.25rem;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 .partner-logo-item:hover {
-  border-color: var(--gray-300);
+  border-color: var(--accent);
   box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
-.partner-title { font-weight: 600; font-size: 0.9rem; color: var(--text); }
-.partner-desc { font-size: 0.75rem; color: var(--text-muted); }
+.partner-title {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.partner-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  text-align: center;
+}
 
 /* ==========================================================================
    10. CONTENT CARDS — THRUST, PROGRAMS, FACILITIES
@@ -941,7 +976,7 @@ a:hover { color: var(--accent-hover); }
   right: 1.25rem;
 }
 
-.program-card-header { margin-bottom: 1rem; padding-right: 5.5rem; }
+.program-card-header { margin-bottom: 1rem; }
 .program-card-header h3 { font-size: 1.3rem; margin-top: 0.25rem; }
 
 .program-highlights {
@@ -1640,6 +1675,7 @@ a:hover { color: var(--accent-hover); }
   .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .partners-wrap { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .footer-grid, .footer-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .cta-container { flex-direction: column; text-align: center; }
   .cta-actions { justify-content: center; }
@@ -1664,6 +1700,25 @@ a:hover { color: var(--accent-hover); }
   .ediitn-top-logo, .msme-top-logo { height: 38px; }
   .hero-stats-row { grid-template-columns: repeat(2, 1fr); }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .partners-section-label { font-size: 0.85rem; line-height: 1.45; }
+  .partners-wrap { grid-template-columns: 1fr; gap: 0.85rem; }
+  .partner-logo-item {
+    padding: 1.25rem 1.25rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .partner-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.35rem;
+  }
+  .partner-desc {
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.45;
+  }
   .footer-grid, .footer-container { grid-template-columns: 1fr; }
   .footer-legal { justify-content: center; width: 100%; }
   .form-glass-wrap { padding: 1.5rem; }
@@ -1679,6 +1734,9 @@ a:hover { color: var(--accent-hover); }
   .hero-desc, .page-lead { font-size: 1rem; }
   .hero-btns, .cta-actions { flex-direction: column; align-items: stretch; }
   .cta-glass-box, .cta-banner { padding: 2.5rem 1.5rem; }
+  .partner-logo-item { padding: 1.15rem 1rem; }
+  .partner-title { font-size: 1.075rem; }
+  .partner-desc { font-size: 0.875rem; }
 }
 
 /* ==========================================================================
@@ -3035,8 +3093,9 @@ a:hover { color: var(--accent-hover); }
   color: var(--accent);
   margin-bottom: 1rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.45rem;
+  line-height: 1.45;
 }
 
 .mentor-profile-spec {

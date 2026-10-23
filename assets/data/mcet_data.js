@@ -371,6 +371,36 @@ window.MCET_DATA = {
       email: 'eeehod@drmcet.ac.in',
       image: 'assets/images/dr_d_ganeshkumar.jpg',
       domain: 'EV Drivetrains, Renewable Solar Energy & Power Electronics'
+    },
+    {
+      id: 8,
+      name: 'Mr. T. Selvakumar',
+      type: 'Faculty Mentor',
+      role: 'Assistant Professor (SS)',
+      institution: 'Dr. MCET Pollachi',
+      email: 'selvakumar@drmcet.ac.in',
+      image: 'assets/images/mentors/t_selvakumar.jpg',
+      domain: 'Artificial Intelligence, Machine Learning, IoT, Robotics, Drone Technology'
+    },
+    {
+      id: 9,
+      name: 'Dr. N. Divya',
+      type: 'Faculty Mentor',
+      role: 'Assistant Professor (SS) / MCA',
+      institution: 'Dr. MCET Pollachi',
+      email: 'divya@drmcet.ac.in',
+      image: 'assets/images/mentors/dr_n_divya.jpg',
+      domain: 'Computer Networks'
+    },
+    {
+      id: 10,
+      name: 'A. Ranjithamani',
+      type: 'Faculty Mentor',
+      role: 'Assistant Professor (EE - VLSI Design & Technology)',
+      institution: 'Dr. MCET Pollachi',
+      email: 'ranjithamani@drmcet.ac.in',
+      image: 'assets/images/mentors/a_ranjithamani.jpg',
+      domain: 'Digital IC Design'
     }
   ],
 
@@ -397,13 +427,13 @@ window.MCET_DATA = {
       name: 'Earn While You Learn Initiative',
       badge: 'Skill-to-Earn',
       description: 'Structured platform connecting engineering students with paid industry technical consulting, prototyping gigs, and live startup tasks.',
-      link: 'initiatives.html'
+      link: 'programs.html'
     },
     {
       name: 'Way to Startup Masterclass Series',
       badge: 'Entrepreneurship',
       description: 'Joint initiative with StartupTN and angel networks training founders on pitch decks, term sheets, legal compliance, and customer acquisition.',
-      link: 'initiatives.html'
+      link: 'programs.html'
     },
     {
       name: 'World Entrepreneurship Day Summit',

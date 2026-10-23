@@ -43,46 +43,23 @@
           </ul>
         </div>
 
-        <div class="glass-card" style="padding:2.25rem;">
-          <h3 style="margin-bottom:1.25rem;">Mentor Application Form</h3>
-          <form style="display:flex; flex-direction:column; gap:1rem;" onsubmit="event.preventDefault(); alert('Thank you for applying! Our incubation team will contact you shortly.');">
-            <div>
-              <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Full Name *</label>
-              <input type="text" required placeholder="e.g. Dr. Anand Raghavan" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border); border-radius:var(--radius-sm);">
-            </div>
-            <div class="grid-2" style="gap:0.75rem;">
-              <div>
-                <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Email *</label>
-                <input type="email" required placeholder="name@company.com" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border); border-radius:var(--radius-sm);">
-              </div>
-              <div>
-                <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Phone *</label>
-                <input type="tel" required placeholder="+91 98765 43210" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border); border-radius:var(--radius-sm);">
-              </div>
-            </div>
-            <div>
-              <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Current Designation & Organization *</label>
-              <input type="text" required placeholder="e.g. VP Engineering, Tech Corp" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border); border-radius:var(--radius-sm);">
-            </div>
-            <div>
-              <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">Primary Mentoring Domain *</label>
-              <select required style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--white);">
-                <option value="">Select Domain...</option>
-                <option value="hardware">Embedded Systems & Hardware IoT</option>
-                <option value="ev">Electric Vehicles & Energy Storage</option>
-                <option value="agri">Agritech & Sustainable Products</option>
-                <option value="ai">AI, ML & Enterprise SaaS</option>
-                <option value="gtm">Sales, Marketing & Go-To-Market</option>
-                <option value="legal">IPR, Legal & Company Law</option>
-                <option value="fund">Venture Capital & Angel Fundraising</option>
-              </select>
-            </div>
-            <div>
-              <label style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.35rem;">LinkedIn Profile URL</label>
-              <input type="url" placeholder="https://linkedin.com/in/username" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border); border-radius:var(--radius-sm);">
-            </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">Submit Application <i class="fas fa-arrow-right"></i></button>
-          </form>
+        <div class="glass-card" style="padding:2.5rem; display:flex; flex-direction:column; justify-content:center; border:1px solid var(--border); border-radius:var(--radius-lg); background:var(--white); box-shadow:var(--shadow-sm);">
+          <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--text);">Apply to Join Our Mentor Network</h3>
+          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:1.5rem; font-size:0.95rem;">
+            We invite industry leaders, domain experts, successful entrepreneurs, and investors to empanel with MILA and mentor aspiring innovators and startups.
+          </p>
+
+          <div style="background:var(--bg-alt); border-radius:var(--radius-md); padding:1.25rem 1.5rem; margin-bottom:2rem; border-left:3px solid var(--accent);">
+            <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin:0;">
+              Please complete our official application form on Google Forms to share your professional background, areas of expertise, and mentoring preferences.
+            </p>
+          </div>
+
+          <div>
+            <a href="https://forms.gle/TnJAQHpR7oGGAD8R7" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:0.85rem 2rem; font-size:1rem; font-weight:700; display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;">
+              Apply Here &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </div>

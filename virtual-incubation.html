@@ -3,50 +3,331 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Incubation Program | MILA - Dr. MCET Incubation Center Pollachi</title>
-  <meta name="description" content="Join the MILA Virtual Incubation Program to access remote mentorship, funding linkages, and cloud credits from anywhere in India.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Virtual Incubation Programme | MILA - Dr. MCET Incubation Center Pollachi</title>
+  <meta name="description" content="MILA Virtual Incubation Programme supports aspiring entrepreneurs, student innovators, and early-stage startups across India with structured guidance, expert mentorship, and resources.">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Dedicated clean, professional styles for Virtual Incubation */
+    .vi-hero {
+      padding: 4.5rem 0 3.5rem;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+    .vi-hero-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .vi-eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+    .vi-hero-title {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .vi-hero-lead {
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    .vi-section {
+      padding: 4.5rem 0;
+    }
+    .vi-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Narrative overview blocks */
+    .vi-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      .vi-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    .vi-overview-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow-xs);
+    }
+    .vi-overview-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.01em;
+    }
+    .vi-overview-card p {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .vi-banner-quote {
+      background: var(--bg-alt);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 1.85rem;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    /* Eligibility Section */
+    .vi-eligibility-header {
+      margin-bottom: 2.75rem;
+    }
+    .vi-eligibility-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .vi-eligibility-header p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .vi-criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+    @media (max-width: 768px) {
+      .vi-criteria-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
+    .vi-criteria-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .vi-criteria-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+    .vi-criteria-num {
+      align-self: flex-start;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--orange-50);
+      border: 1px solid var(--orange-100);
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+    .vi-criteria-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.01em;
+    }
+    .vi-criteria-desc {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Card spanning full width on last item */
+    .vi-criteria-card-full {
+      grid-column: 1 / -1;
+    }
+
+    /* Action Box */
+    .vi-action-card {
+      margin-top: 4rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .vi-action-card h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .vi-action-card p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Standard Global Header (Populated dynamically by header.js) -->
   <div id="global-header"></div>
 
+  <!-- Hero Section -->
+  <section class="vi-hero">
+    <div class="vi-container">
+      <div class="vi-hero-container">
+        <span class="vi-eyebrow">MILA – Virtual Incubation Programme</span>
+        <h1 class="vi-hero-title">Virtual Incubation Programme</h1>
+        <p class="vi-hero-lead">
+          MCET Incubation and Innovation Launchpad Association (MILA) offers a virtual incubation programme designed to support aspiring entrepreneurs, student innovators, and early-stage startups in transforming innovative ideas into market-ready solutions. The programme provides structured guidance, expert mentorship, and access to entrepreneurial resources to help startups validate their business models and build sustainable ventures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programme Overview & Journey Section -->
+  <section class="vi-section" style="background:#ffffff;">
+    <div class="vi-container">
       
-  <section class="page-header">
-    <div class="container page-header-content">
-      <h1 class="page-title">Virtual Incubation Program</h1>
-      <p class="page-lead">Empowering external founders, working professionals, and remote teams across India with institutional backing and funding linkages.</p>
+      <div class="vi-overview-grid">
+        <div class="vi-overview-card">
+          <h3>Startup-Focused Incubation Journey</h3>
+          <p>
+            Through a startup-focused incubation journey, participants receive support in business model development, product validation, market research, go-to-market planning, financial planning, and growth strategies. The programme also facilitates connections with industry experts, mentors, investors, and ecosystem partners to strengthen startup capabilities and explore business opportunities.
+          </p>
+        </div>
+
+        <div class="vi-overview-card">
+          <h3>Market Readiness & Investor Engagement</h3>
+          <p>
+            MILA aims to create an enabling environment for entrepreneurs to overcome early-stage challenges, refine their products and services, and develop scalable business models. With access to mentoring, networking opportunities, funding guidance, and relevant institutional resources, startups can strengthen their readiness for market entry, pilot implementation, and investor engagement.
+          </p>
+        </div>
+      </div>
+
+      <div class="vi-banner-quote">
+        The Virtual Incubation Programme extends MILA's startup support beyond physical workspace, enabling entrepreneurs to access incubation guidance and ecosystem opportunities while developing innovative solutions across diverse sectors.
+      </div>
+
     </div>
   </section>
 
+  <!-- Eligibility Criteria Section -->
+  <section class="vi-section" style="background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="vi-container">
 
-  <section class="section">
-    <div class="container">
-      <div class="grid-3">
-        <div class="glass-card" style="padding:2rem;">
-          <h3>Fortnightly Video Mentorship</h3>
-          <p>Scheduled 1-on-1 virtual clinics with industry leaders covering product roadmap, sales strategy, and investor readiness.</p>
-        </div>
-        <div class="glass-card" style="padding:2rem;">
-          <h3>₹5 Lakhs+ Cloud Credits</h3>
-          <p>Full access to AWS Activate, Microsoft Founders Hub, Google Cloud, Razorpay, and Notion startup partner perks.</p>
-        </div>
-        <div class="glass-card" style="padding:2rem;">
-          <h3>Grant & Pitch Routing</h3>
-          <p>Direct nomination and institutional backing for government grants (EDII-TN IVP, TANSEED, MSME Ideas).</p>
-        </div>
+      <div class="vi-eligibility-header">
+        <h2>Eligibility Criteria</h2>
+        <p>Requirements and prerequisites for prospective startups, student innovators, and founders.</p>
       </div>
-      <div style="text-align:center; margin-top:3rem;">
-        <a href="apply.html" class="btn btn-primary btn-lg">Apply for Virtual Incubation <i class="fas fa-arrow-right"></i></a>
+
+      <div class="vi-criteria-grid">
+
+        <!-- Criteria 1 -->
+        <div class="vi-criteria-card">
+          <span class="vi-criteria-num">01</span>
+          <h3 class="vi-criteria-title">Startup Idea / Product Readiness</h3>
+          <p class="vi-criteria-desc">
+            Startups should have a validated business idea, proof of concept, functional prototype, or Minimum Viable Product (MVP). Preference may be given to ventures that have progressed towards product development and market validation.
+          </p>
+        </div>
+
+        <!-- Criteria 2 -->
+        <div class="vi-criteria-card">
+          <span class="vi-criteria-num">02</span>
+          <h3 class="vi-criteria-title">Startup Location</h3>
+          <p class="vi-criteria-desc">
+            Startups and entrepreneurial ventures based in India are eligible to apply, subject to the programme's requirements.
+          </p>
+        </div>
+
+        <!-- Criteria 3 -->
+        <div class="vi-criteria-card">
+          <span class="vi-criteria-num">03</span>
+          <h3 class="vi-criteria-title">Stage of Startup</h3>
+          <p class="vi-criteria-desc">
+            Student entrepreneurs, aspiring founders, early-stage startups, and emerging ventures seeking structured incubation support are encouraged to apply.
+          </p>
+        </div>
+
+        <!-- Criteria 4 -->
+        <div class="vi-criteria-card">
+          <span class="vi-criteria-num">04</span>
+          <h3 class="vi-criteria-title">Innovation and Problem-Solving</h3>
+          <p class="vi-criteria-desc">
+            The proposed venture should demonstrate innovation, address a real-world problem, and offer a meaningful solution with potential for practical implementation.
+          </p>
+        </div>
+
+        <!-- Criteria 5 -->
+        <div class="vi-criteria-card">
+          <span class="vi-criteria-num">05</span>
+          <h3 class="vi-criteria-title">Founder Commitment</h3>
+          <p class="vi-criteria-desc">
+            At least one founder or designated team member should be committed to participating in incubation activities, mentorship sessions, progress reviews, and programme-related engagements.
+          </p>
+        </div>
+
+        <!-- Criteria 6 -->
+        <div class="vi-criteria-card">
+          <span class="vi-criteria-num">06</span>
+          <h3 class="vi-criteria-title">Scalability and Sustainability</h3>
+          <p class="vi-criteria-desc">
+            The startup should demonstrate potential for market adoption, business growth, and long-term sustainability through a viable business model.
+          </p>
+        </div>
+
+        <!-- Criteria 7 -->
+        <div class="vi-criteria-card vi-criteria-card-full">
+          <span class="vi-criteria-num">07</span>
+          <h3 class="vi-criteria-title">Alignment with MILA's Focus Areas</h3>
+          <p class="vi-criteria-desc">
+            Startups working in areas such as Embedded Systems, Internet of Things (IoT), Industrial Automation, and Artificial Intelligence (AI), along with other innovative sectors, are encouraged to apply.
+          </p>
+        </div>
+
       </div>
+
+      <!-- Action Card -->
+      <div class="vi-action-card">
+        <h3>Ready to Build Your Venture with MILA?</h3>
+        <p>
+          Submit your application to join the MILA Virtual Incubation Programme and receive structured mentorship, ecosystem networking, and market entry support.
+        </p>
+        <a href="apply.html" class="btn btn-primary btn-lg">Apply for Virtual Incubation</a>
+      </div>
+
     </div>
   </section>
-
 
   <!-- Global Footer -->
-    <footer class="tbi-footer">
+  <footer class="tbi-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -56,7 +337,7 @@
             </a>
           </div>
           <p>
-            MCET Incubation and Innovation Launchpad Association (MILA) & Entrepreneurship & Incubation Centre (EIC). Dr. Mahalingam College of Engineering and Technology, Pollachi.
+            MCET Incubation and Innovation Launchpad Association (MILA) &amp; Entrepreneurship &amp; Incubation Centre (EIC). Dr. Mahalingam College of Engineering and Technology, Pollachi.
           </p>
           <div class="footer-social-links">
             <a href="https://drmcet.ac.in/" target="_blank" class="social-icon-btn" aria-label="Website"><i class="fas fa-globe"></i></a>
@@ -67,17 +348,17 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul class="footer-nav-list">
-            <li><a href="about.html">About MILA & EIC</a></li>
+            <li><a href="about.html">About MILA &amp; EIC</a></li>
             <li><a href="programs.html">Incubation Programs</a></li>
-            <li><a href="funding.html">EDII-TN & MSME Grants</a></li>
-            <li><a href="facilities.html">AICTE IDEA Lab & COEs</a></li>
+            <li><a href="funding.html">EDII-TN &amp; MSME Grants</a></li>
+            <li><a href="facilities.html">AICTE IDEA Lab &amp; COEs</a></li>
             <li><a href="startups.html">Active Incubatees</a></li>
-            <li><a href="mentors.html">Faculty & Mentors</a></li>
+            <li><a href="mentors.html">Faculty &amp; Mentors</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Schemes & Labs</h4>
+          <h4>Schemes &amp; Labs</h4>
           <ul class="footer-nav-list">
             <li><a href="funding.html">EDII-TN IVP Scheme</a></li>
             <li><a href="funding.html">Ministry of MSME Support</a></li>
@@ -106,7 +387,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 MCET Incubation and Innovation Launchpad Association (MILA) & EIC. Dr. MCET Pollachi.</div>
+        <div>&copy; 2026 MCET Incubation and Innovation Launchpad Association (MILA) &amp; EIC. Dr. MCET Pollachi.</div>
         <div style="display:flex; gap:1.25rem;">
           <a href="about.html" style="color:var(--gray-500);">About EIC</a>
           <a href="programs.html" style="color:var(--gray-500);">Incubation Policy</a>
