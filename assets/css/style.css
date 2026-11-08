@@ -1522,6 +1522,20 @@ a:hover { color: var(--accent-hover); }
   gap: 0.75rem;
 }
 
+.footer-watermark {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: 0.3px;
+}
+
+.footer-watermark span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 /* ==========================================================================
    17. PAGE HERO BANNERS (Sub-pages)
    ========================================================================== */
@@ -1721,6 +1735,17 @@ a:hover { color: var(--accent-hover); }
   }
   .footer-grid, .footer-container { grid-template-columns: 1fr; }
   .footer-legal { justify-content: center; width: 100%; }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-watermark {
+    order: 3;
+    margin-top: 0.25rem;
+  }
   .form-glass-wrap { padding: 1.5rem; }
   .floating-pill-card { display: none; }
   .section, .section-py { padding: 3.5rem 0; }
